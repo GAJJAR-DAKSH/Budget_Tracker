@@ -1,0 +1,271 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>Budget Tracker Pro</title>
+
+    <!-- Google Fonts -->
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&display=swap"
+        rel="stylesheet">
+
+    <!-- Main CSS -->
+    <link rel="stylesheet" href="css/main.css">
+
+    <!-- Chart.js -->
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+
+    <!-- jsPDF -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jspdf/2.5.1/jspdf.umd.min.js"></script>
+
+    <!-- Main JS -->
+    <script type="module" src="js/main.js" defer></script>
+</head>
+
+<body>
+
+    <!-- Background Blobs -->
+    <div class="bg-blob blob-1"></div>
+    <div class="bg-blob blob-2"></div>
+    <div class="bg-blob blob-3"></div>
+
+    <div class="container">
+
+        <!-- Header -->
+        <header class="header">
+
+            <div class="header-left">
+                <h1>💰 Budget Tracker Pro</h1>
+                <p>Track, analyze and grow your finances smarter.</p>
+            </div>
+
+            <div class="header-right">
+
+                <button id="themeToggle" class="action-btn">
+                    🌙 Dark Mode
+                </button>
+
+                <button id="exportCSV" class="action-btn">
+                    📄 Export CSV
+                </button>
+
+                <button id="downloadPDF" class="action-btn primary-btn">
+                    📑 Download PDF
+                </button>
+
+            </div>
+
+        </header>
+
+        <!-- Dashboard Cards -->
+        <section class="stats-grid">
+
+            <div class="stat-card income-card">
+
+                <div class="stat-icon">
+                    💰
+                </div>
+
+                <div>
+                    <p>Total Income</p>
+                    <h2 id="incomeAmount">
+                        ₹0
+                    </h2>
+                </div>
+
+            </div>
+
+            <div class="stat-card expense-card">
+
+                <div class="stat-icon">
+                    💸
+                </div>
+
+                <div>
+                    <p>Total Expense</p>
+                    <h2 id="expenseAmount">
+                        ₹0
+                    </h2>
+                </div>
+
+            </div>
+
+            <div class="stat-card balance-card">
+
+                <div class="stat-icon">
+                    🏦
+                </div>
+
+                <div>
+                    <p>Current Balance</p>
+                    <h2 id="balanceAmount">
+                        ₹0
+                    </h2>
+                </div>
+
+            </div>
+
+        </section>
+
+        <!-- Analytics Section -->
+        <section class="analytics-grid">
+
+            <!-- Expense Pie Chart -->
+            <div class="glass-card chart-card">
+
+                <div class="section-header">
+                    <h2>📊 Expense Distribution</h2>
+                </div>
+
+                <canvas id="expenseChart"></canvas>
+
+            </div>
+
+            <!-- Monthly Analytics -->
+            <div class="glass-card analytics-card">
+
+                <div class="section-header">
+                    <h2>📈 Monthly Analytics</h2>
+                </div>
+
+                <div class="analytics-stats">
+
+                    <div class="analytic-box">
+                        <span>Total Transactions</span>
+                        <strong id="transactionCount">
+                            0
+                        </strong>
+                    </div>
+
+                    <div class="analytic-box">
+                        <span>Highest Income</span>
+                        <strong id="highestIncome">
+                            ₹0
+                        </strong>
+                    </div>
+
+                    <div class="analytic-box">
+                        <span>Highest Expense</span>
+                        <strong id="highestExpense">
+                            ₹0
+                        </strong>
+                    </div>
+
+                    <div class="analytic-box">
+                        <span>Monthly Savings</span>
+                        <strong id="monthlySavings">
+                            ₹0
+                        </strong>
+                    </div>
+
+                </div>
+
+            </div>
+
+        </section>
+
+        <!-- Search -->
+        <section class="search-section">
+
+            <div class="search-wrapper">
+
+                <input type="text"
+                    id="searchInput"
+                    placeholder="🔍 Search by category, amount, description...">
+
+            </div>
+
+        </section>
+
+        <!-- Main Layout -->
+        <section class="main-layout">
+
+            <!-- Transactions -->
+            <div class="transactions-container">
+
+                <div class="glass-card">
+
+                    <div class="section-header">
+
+                        <h2>
+                            💳 Transactions
+                        </h2>
+
+                    </div>
+
+                    <!-- Budget Tracker Injected Here -->
+                    <div id="app"></div>
+
+                </div>
+
+            </div>
+
+            <!-- Recent Activity Sidebar -->
+            <aside class="activity-sidebar">
+
+                <div class="glass-card">
+
+                    <div class="section-header">
+
+                        <h2>
+                            ⚡ Recent Activity
+                        </h2>
+
+                    </div>
+
+                    <div id="recentActivity">
+
+                        <!-- Dynamic Content -->
+
+                        <div class="empty-state">
+
+                            <div class="empty-icon">
+                                📊
+                            </div>
+
+                            <h3>No Activity Yet</h3>
+
+                            <p>
+                                Start adding transactions to
+                                see your activity history.
+                            </p>
+
+                        </div>
+
+                    </div>
+
+                </div>
+
+            </aside>
+
+        </section>
+
+        <!-- Empty State -->
+        <section id="globalEmptyState" class="global-empty-state">
+
+            <div class="empty-card">
+
+                <div class="empty-emoji">
+                    🚀
+                </div>
+
+                <h2>
+                    Welcome to Budget Tracker Pro
+                </h2>
+
+                <p>
+                    Add your first transaction and unlock
+                    analytics, reports, charts and insights.
+                </p>
+
+            </div>
+
+        </section>
+
+    </div>
+
+</body>
+
+</html>
